@@ -1,0 +1,49 @@
+.cardContainer {
+    width: 85%;
+    height: 100%;
+    margin: auto;
+}
+.cardContainer > h1 {
+    color: red;
+    font-size: 3rem;
+    font-weight: 600;
+}
+.cardList {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    /* border: 5px solid green; */
+}
+.cardList li {
+    display: block;
+    /* border: 5px solid red; */
+    flex-basis: 22%;
+    height: 60%;
+    margin-bottom: 4rem;
+}
+.cardList li > .imageContainer {
+    height: 85%;
+    overflow: hidden;
+    /* border: 1px solid green; */
+}
+.cardList li > .imageContainer img {
+    width: 100%;
+    height: 100%;
+    transition-duration: 0.5s;
+}
+.cardList li img:hover {
+    transform: scale(1.3);
+}
+.cardList li .textContainer {
+    /* height: 20%; */
+    /* border: 1px solid blue; */
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+.cardList li .textContainer p:last-child{
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+}
