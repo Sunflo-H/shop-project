@@ -1,17 +1,24 @@
 let tshirt = [
     {
-        name: "티셔츠",
-        desc: "티셔츠입니다.",
+        name: "orange T-shirt",
+        desc: "오렌지 그림이 있는 티셔츠입니다.",
         price: 20000,
         stock: 10,
-        src: "./img/t1.webp",
+        src: "assets/img/t1.webp",
     },
     {
-        name: "티셔츠2",
-        desc: "티셔츠2입니다.",
-        price: 30000,
+        name: "palm tree T-shirt",
+        desc: "야자수 그림이 있는 티셔츠입니다.",
+        price: 15000,
         stock: 10,
-        src: "./img/t2.webp",
+        src: "assets/img/t2.webp",
+    },
+    {
+        name: "yes T-shirt",
+        desc: "yes 그림이 있는 티셔츠입니다.",
+        price: 10000,
+        stock: 20,
+        src: "assets/img/t3.webp",
     }
 ];
 

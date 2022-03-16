@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/reset.css'
 import styles from './App.module.css';
-import tshirt from './data.js';
+import data from './data.js';
 import 카드리스트 from './component/Cardlist.js'
 
 function App() {
-  let [카드, 카드변경] = useState([...tshirt]);
+  let [tshirt, setTshirt] = useState(data);
 
   return (
     <div className={styles.App}>
-      <카드리스트></카드리스트>
-      {/* <카드리스트></카드리스트> */}
+      <카드리스트 tshirt = {tshirt}></카드리스트>
     </div>
   );
 }

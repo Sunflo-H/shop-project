@@ -1,6 +1,4 @@
 import styles from '../css/Cardlist.module.css';
-import t1 from '../img/t1.webp';
-import t2 from '../img/t2.webp';
 
 function CardList(props) {
   return (
@@ -9,7 +7,7 @@ function CardList(props) {
       <ul className={styles.cardList}>
         <li>
           <div className={styles.imageContainer}>
-            <img src={t1}></img>
+            <img src={props.tshirt[0].src}></img>
           </div>
           <div className={styles.textContainer}>
             <p>오렌지 티셔츠</p>
@@ -18,7 +16,16 @@ function CardList(props) {
         </li>
         <li>
           <div className={styles.imageContainer}>
-            <img src={t2}></img>
+            <img src={props.tshirt[1].src}></img>
+          </div>
+          <div className={styles.textContainer}>
+            <p>야자수 티셔츠</p>
+            <p>15000원</p>
+          </div>
+        </li>
+        <li>
+          <div className={styles.imageContainer}>
+            <img src={props.tshirt[2].src}></img>
           </div>
           <div className={styles.textContainer}>
             <p>야자수 티셔츠</p>
@@ -27,13 +34,6 @@ function CardList(props) {
         </li>
         <li>c</li>
         <li>d</li>
-        <li><div className={styles.imageContainer}>
-          <img src={t2}></img>
-        </div>
-          <div className={styles.textContainer}>
-            <p>야자수 티셔츠</p>
-            <p>15000원</p>
-          </div></li>
         <li>f</li>
         <li>g</li>
         <li>h</li>
