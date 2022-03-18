@@ -1,5 +1,71 @@
+:root {
+  --background-color : #d6ff38
+}
+
 .App {
   width: 100%;
   height: 100vh;
   /* border: 5px solid red; */
+}
+
+header {
+  display: flex;
+  border: 2px solid black;
+  height: 4rem;
+}
+
+.logo {
+  /* flex-basis: 20%; */
+  flex-grow: 1;
+  border-right: 2px solid black;
+  max-width: 12%;
+  text-align: center;
+  line-height: 3.8rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-color: var(--background-color);
+}
+
+.menu {
+  display: flex;
+  flex-grow: 1;
+  /* border: 1px solid blue; */
+  text-align: center;
+  line-height: 3.8rem;
+  /* margin-left: 200px; */
+}
+
+.menu ul {
+  display: flex;
+  float: right;
+  width: 100%;
+  position: relative;
+  margin: 0px 0px 0px calc(100% - 700px);
+}
+.menu ul li {
+  cursor: pointer;
+  float: left;
+  flex-basis: 40%;
+  /* border: 1px solid red; */
+}
+.menu ul li:hover {
+  background-color: black;
+  color: var(--background-color);
+}
+
+.login {
+  border-left: 1px solid black;
+  flex-grow: 1;
+  max-width: 20%;
+  text-align: center;
+  line-height: 4rem;
+  font-size: 1.1rem;
+}
+.userIcon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+.userIcon + span {
+  position: relative;
+  top: -2px;
 }

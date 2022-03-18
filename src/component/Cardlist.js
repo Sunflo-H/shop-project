@@ -3,7 +3,7 @@ import styles from '../css/Cardlist.module.css';
 function CardList(props) {
   return (
     <div className={styles.cardContainer}>
-      <h1>BEST</h1>
+      <p>New Drops</p>
       <ul className={styles.cardList}>
         {
           props.tshirt.map((item,i) => {
