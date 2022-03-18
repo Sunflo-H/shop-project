@@ -2,11 +2,12 @@
     width: 85%;
     height: 100%;
     margin: auto;
+    font-family: malgun gothic;
 }
 .cardContainer > p {
     display: block;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+    font-weight: bold;
     text-align: center;
 }
 .cardList {
