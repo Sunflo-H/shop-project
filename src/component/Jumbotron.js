@@ -10,9 +10,27 @@ function Jumbotron() {
                 <div>There’s One for Everyone</div>
             </div>
             <div className={styles.imgContainer}>
-                <div><img src={image[0].src}></img></div>
-                <div><img src={image[1].src}></img></div>
-                <div><img src={image[2].src}></img></div>
+                <div className={styles.smallImage}>
+                    <img src={image[0].src}></img>
+                    <div className={styles.backgroundImage}>
+                        <img src='assets/img/background-long.png'></img>
+                    </div>
+                    <div className={styles.menutext}><span>Shop Women</span></div>   
+                </div>
+                <div className={styles.bigImage}>
+                    <img src={image[1].src}></img>
+                    <div className={styles.backgroundImage}>
+                        <img src='assets/img/background-long.png'></img>
+                    </div>
+                    <div className={styles.menutext}><span>Shop New</span></div>   
+                </div>
+                <div className={styles.smallImage}>
+                    <img src={image[2].src}></img>
+                    <div className={styles.backgroundImage}>
+                        <img src='assets/img/background-long.png'></img>
+                    </div>
+                    <div className={styles.menutext}><span>Shop Man</span></div>   
+                </div>
             </div>
         </div>        
     );

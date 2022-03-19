@@ -1,7 +1,7 @@
 .cardContainer {
     width: 85%;
     height: 100%;
-    margin: auto;
+    margin: 4rem auto 0 ;
     font-family: malgun gothic;
 }
 .cardContainer > p {
@@ -9,13 +9,14 @@
     font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .cardList {
     min-width:900px; /* 이 부분을 조정하면 반응형 만들수 있다.*/
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 4rem;
     /* border: 1px solid green; */
 }
 .cardList li {
