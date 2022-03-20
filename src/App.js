@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Route, Link, Switch} from 'react-router-dom';
 import './css/reset.css';
 import styles from './App.module.css';
 import data from './data.js';
@@ -10,7 +11,11 @@ import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   let [tshirt, setTshirt] = useState(data);
-
+  let [time, setTime] = useState(1);
+  console.log({time});
+  let inputChangeHandler = (e) => {
+    const updatedKeyword = e.target.value;
+  }
   return (
     <div className={styles.App}>
       <header>
@@ -27,8 +32,23 @@ function App() {
             <span>Log In</span>
           </div>
       </header>
-      <Jumbotron></Jumbotron>
-      <Card tshirt = {tshirt}></Card>
+      <Route exact path={"/"}>
+        <Jumbotron></Jumbotron>
+        <Card tshirt = {tshirt}></Card>
+      </Route>
+
+      <Route path={"/woman"}>
+        <h1>여자 옷 페이지입니다.</h1>
+        <input 
+          type="text" 
+          defaultValue={time}
+          onChange={(e) => inputChangeHandler}/>
+        <button onClick={
+          function() {
+            setTime(time+1);
+          } 
+        }>update</button>
+      </Route>
     </div>
   );
 }
