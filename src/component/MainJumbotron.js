@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from '../css/Jumbotron.module.css';
+import styles from '../css/MainJumbotron.module.css';
 import data from '../jumbotronData';
 import { Route, Link, Switch } from 'react-router-dom';
 
@@ -15,7 +15,6 @@ function Jumbotron() {
                 <div>There’s One for Everyone</div>
             </div>
             <div className={styles.imgContainer}>
-                
                 <div className={styles.smallImage}>
                     <img src={image[0].src}></img>
                     <Link to="/woman" >

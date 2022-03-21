@@ -80,11 +80,13 @@
     position: absolute;
     top: 85%;
     left: 50%;
+    transform: translate(-50%,0);
     font-size: 2rem;
     font-family: malgun gothic;
-    transform: translate(-50%,0);
     display: none;
     pointer-events: none;
     opacity: 0.9;
+    width: 100%;
+    text-align: center;
 }
 

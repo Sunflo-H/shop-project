@@ -1,4 +1,4 @@
-import styles from '../css/Cardlist.module.css';
+import styles from '../css/CardList.module.css';
 
 function CardList(props) {
   return (
