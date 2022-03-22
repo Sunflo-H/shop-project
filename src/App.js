@@ -17,7 +17,13 @@ import SubPage from './component/SubPage';
 function App() {
   let [tshirts, setTshirts] = useState(data);
   console.log(tshirts);
-  
+
+  function getNewTshirts() {
+    let totalCount = tshirts.length;
+    const COUNT = 8;
+    let newTshirts = tshirts.filter((tshirt,i) => (totalCount-i) <= (totalCount - COUNT ));
+    return newTshirts;
+  }
   return (
     <div className={styles.App}>
       {/* 헤더 */}
@@ -39,7 +45,7 @@ function App() {
       {/* 메인 */}
       <Route exact path={"/"}>
         <Jumbotron></Jumbotron>
-        <Card tshirts={tshirts}></Card>
+        <Card tshirts={getNewTshirts()}></Card>
       </Route>
       <Route path="/:shopName">
 					<SubPage tshirts={tshirts}></SubPage>
