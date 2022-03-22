@@ -6,15 +6,15 @@ function CardList(props) {
       <p>New Drops</p>
       <ul className={styles.cardList}>
         {
-          props.tshirt.map((item,i) => {
+          props.tshirts.map((tshirt,i) => {
             return (
               <li key = {i}>
                 <div className={styles.imageContainer}>
-                  <img src={props.tshirt[i].src}></img>
+                  <img src={tshirt.src}></img>
                 </div>
                 <div className={styles.textContainer}>
-                  <p>{props.tshirt[i].name}</p>
-                  <p>{props.tshirt[i].price}원</p>
+                  <p>{tshirt.name}</p>
+                  <p>{tshirt.price}원</p>
                 </div>
               </li>
             )

@@ -23,7 +23,7 @@ function SubPage(props) {
             <div>
                 <h1>이 서브페이지에는 여자옷 페이지가 뜬다</h1>
                 <SubJumbotron></SubJumbotron>
-                <Card tshirt={data}></Card>
+                <Card tshirts={data}></Card>
             </div>
         )
     } else if (shopName === "man") {
@@ -32,7 +32,7 @@ function SubPage(props) {
             <div>
                 <h1>이 서브페이지에는 남자옷 페이지가 뜬다</h1>
                 <SubJumbotron></SubJumbotron>
-                <Card tshirt={data}></Card>
+                <Card tshirts={data}></Card>
             </div>
         )
     } else if (shopName === "new") {
@@ -41,7 +41,7 @@ function SubPage(props) {
             <div>
                 <h1>이 서브페이지에는 신상품 페이지가 뜬다</h1>
                 <SubJumbotron></SubJumbotron>
-                <Card tshirt={data}></Card>
+                <Card tshirts={data}></Card>
             </div>
         )
     } else {
