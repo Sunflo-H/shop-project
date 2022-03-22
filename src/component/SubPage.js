@@ -1,62 +1,53 @@
 import { useState } from "react";
 import SubJumbotron from './SubJumbotron';
 import Card from './CardList';
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function SubPage(props) {
-    const {shopName} = useParams();
-    const history = useHistory();
-    console.log(props.tshirts);
-    
-    function sortByGender(text) {
-        let newTshirts = props.tshirts.filter(tshirt => {
-            console.log(tshirt);
-            return tshirt.gender === text
-        });
-        console.log(newTshirts);
+    const { category } = useParams();
+
+    function sortTshirt(category) {
+        let newData;
+        if (category === "new") newData = getNewTshirts();
+        else newData = props.tshirts.filter(tshirt => tshirt.gender === category);
+        return newData;
+    }
+
+    function getNewTshirts() {
+        let totalCount = props.tshirts.length;
+        const COUNT = 8;
+        let newTshirts = props.tshirts.filter((tshirt, i) => (totalCount - i) <= (totalCount - COUNT));
         return newTshirts;
     }
 
-    if(shopName === "woman") {
-        let data = sortByGender(shopName);
-        return(
+    if (category === "woman") {
+        return (
             <div>
-                <h1>이 서브페이지에는 여자옷 페이지가 뜬다</h1>
-                <SubJumbotron></SubJumbotron>
-                <Card tshirts={data}></Card>
+                <SubJumbotron category = {category}></SubJumbotron>
+                <Card tshirts={sortTshirt(category)}></Card>
             </div>
         )
-    } else if (shopName === "man") {
-        let data = sortByGender(shopName);
-        return(
+    } else if (category === "man") {
+        return (
             <div>
-                <h1>이 서브페이지에는 남자옷 페이지가 뜬다</h1>
-                <SubJumbotron></SubJumbotron>
-                <Card tshirts={data}></Card>
+                <SubJumbotron category = {category}></SubJumbotron>
+                <Card tshirts={sortTshirt(category)}></Card>
             </div>
         )
-    } else if (shopName === "new") {
-        let data = sortByGender(shopName);
-        return(
+    } else if (category === "new") {
+        return (
             <div>
-                <h1>이 서브페이지에는 신상품 페이지가 뜬다</h1>
-                <SubJumbotron></SubJumbotron>
-                <Card tshirts={data}></Card>
+                <SubJumbotron category = {category}></SubJumbotron>
+                <Card tshirts={sortTshirt(category)}></Card>
             </div>
         )
     } else {
-        return(
+        return (
             <div>
                 <h1>없는 페이지입니다.</h1>
             </div>
         )
     }
-    // return (
-    //     <div>
-    //         <SubJumbotron></SubJumbotron>
-    //         {/* <CardList></CardList> */}
-    //     </div>
-    // )
 }
 
 export default SubPage;

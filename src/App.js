@@ -47,7 +47,7 @@ function App() {
         <Jumbotron></Jumbotron>
         <Card tshirts={getNewTshirts()}></Card>
       </Route>
-      <Route path="/:shopName">
+      <Route path="/:category">
 					<SubPage tshirts={tshirts}></SubPage>
       </Route>
 
