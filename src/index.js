@@ -5,14 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {HashRouter} from 'react-router-dom';
 import Test3 from './component/Test3';
-import Study from './component/Study';
+import Study from './study/Study';
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      <App />
+      {/* <App /> */}
       {/* <Test3></Test3> */}
-      {/* <Study></Study> */}
+      <Study></Study>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')

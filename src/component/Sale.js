@@ -2,6 +2,7 @@ import styles from '../css/Sale.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt,faArrowLeftLong, faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import {Link} from 'react-router-dom';
+import React from 'react';
 function Sale() {
     return (
         <div className={styles.saleContainer}>
