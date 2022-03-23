@@ -46,7 +46,6 @@
 
 .cardContainer .btnContainer {
     text-align: center;
-    border: 1px solid red;
 }
 
 .cardContainer .btnContainer button {
@@ -55,6 +54,7 @@
     font-size: 1.2rem;
     color: var(--background-color);
     background-color: black;
+    transition-duration: 0.3s;
 }
 .cardContainer .btnContainer button:hover {
     color: black;
