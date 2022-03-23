@@ -2,7 +2,6 @@ import styles from '../css/CardList.module.css';
 import { useParams } from 'react-router-dom';
 function CardList(props) {
   let {category} = useParams();
-  console.log(category);
   return (
     <div className={styles.cardContainer}>
       {
@@ -26,6 +25,12 @@ function CardList(props) {
           })
         } 
       </ul>
+      {
+        category === undefined ? 
+        <div className={styles.btnContainer}>
+          <button>Shop New</button>
+        </div> : null
+      }
     </div>
 
   )

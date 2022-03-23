@@ -27,7 +27,7 @@ function SubPage(props) {
                 <Card tshirts={sortTshirt(category)}></Card>
             </div>
         )
-    } else if (category === "man") {
+    } else if (category === "man") {    
         return (
             <div>
                 <SubJumbotron category = {category}></SubJumbotron>

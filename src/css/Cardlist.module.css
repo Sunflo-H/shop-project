@@ -1,6 +1,6 @@
 .cardContainer {
     width: 85%;
-    height: 100%;
+    min-height: 100%;
     margin: 4rem auto 0 ;
     font-family: malgun gothic;
 }
@@ -17,14 +17,12 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 4rem;
-    /* border: 1px solid green; */
 }
 .cardList li {
     display: block;
     flex-basis: 22%;
     min-width: 22%;
     margin-bottom: 4rem;
-    /* border: 1px solid green; */
 }
 .cardList li > .imageContainer {
     overflow: hidden;
@@ -44,4 +42,21 @@
 .cardList li .textContainer p:last-child{
     margin-top: 0.7rem;
     font-size: 0.9rem;
+}
+
+.cardContainer .btnContainer {
+    text-align: center;
+    border: 1px solid red;
+}
+
+.cardContainer .btnContainer button {
+    padding: 5px 40px;
+    border: 2px solid black;
+    font-size: 1.2rem;
+    color: var(--background-color);
+    background-color: black;
+}
+.cardContainer .btnContainer button:hover {
+    color: black;
+    background-color: var(--background-color);
 }

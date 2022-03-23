@@ -12,11 +12,11 @@ import Test from './component/Test';
 import Test2 from './component/Test2';
 import Test3 from './component/Test3';
 import SubPage from './component/SubPage';
+import Sale from './component/Sale';
 
 
 function App() {
   let [tshirts, setTshirts] = useState(data);
-  console.log(tshirts);
 
   function getNewTshirts() {
     let totalCount = tshirts.length;
@@ -28,12 +28,12 @@ function App() {
     <div className={styles.App}>
       {/* 헤더 */}
       <header>
-        <div className={styles.logo}>T SHOP</div>
+        <div className={styles.logo}><Link to={'/'}>T SHOP</Link></div>
         <div className={styles.menu}>
           <ul>
-            <li>New</li>
-            <li>Women</li>
-            <li>Men</li>
+            <li><Link to={'/new'}>New</Link></li>
+            <li><Link to={'/woman'}>Woman</Link></li>
+            <li><Link to={'/man'}>Man</Link></li>
           </ul>
         </div>
         <div className={styles.login}>
@@ -42,35 +42,18 @@ function App() {
         </div>
       </header>
 
-      {/* 메인 */}
       <Route exact path={"/"}>
+      {/* 메인 */}
         <Jumbotron></Jumbotron>
         <Card tshirts={getNewTshirts()}></Card>
+        <Sale></Sale>
+      
       </Route>
       <Route path="/:category">
-					<SubPage tshirts={tshirts}></SubPage>
+          <SubPage tshirts={tshirts}></SubPage>
       </Route>
-
-      {/* <Route path={"/woman"}>
-        <h1>여자 옷 페이지입니다.</h1>
-        <SubPage tshirt={tshirt}></SubPage>
-      </Route>
-      <Route path={"/man"}>
-        <h1>남자 옷 페이지입니다.</h1>
-        <SubPage></SubPage>
-      </Route>
-
-      <Route path={"/new"}>
-        <h1>새 옷 페이지입니다.</h1>
-        <SubPage></SubPage>
-      </Route>
-
-
-      <Route path={"/test"}>
-        <Test></Test>
-        <Test2></Test2>
-        <Test3></Test3>
-      </Route> */}
+      {/* 푸터 */}
+      {/* <Footer></Footer>   */}
     </div>
   );
 }
