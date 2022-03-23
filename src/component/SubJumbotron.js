@@ -11,7 +11,7 @@ function TextJumbotron(props) {
     return (
         <div className={styles.jumbotron}>
             <div className={styles.textContainer}>
-                <p>SHOP {capitalize(props.category)}</p>
+                <p>Shop {capitalize(props.category)}</p>
             </div>
         </div>
     );

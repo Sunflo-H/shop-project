@@ -7,7 +7,7 @@ function Jumbotron() {
     let [image, setImage] = useState(data);
     let [link, setLink] = useState(['/woman','/new','/man']);
     let [shopName, setShopName] = useState(['Shop Woman', 'Shop New', 'Shop Man']);
-    console.log(image);
+
     return (
         <div className={styles.jumbotron}>
             <div className={styles.textContainer}>
@@ -19,7 +19,7 @@ function Jumbotron() {
                     <img src={image[0].src}></img>
                     <Link to="/woman" >
                         <div className={styles.backgroundImage}>
-                            <img src='assets/img/background-long.png'></img>
+                            <img src='assets/img/background2.png'></img>
                         </div>
                         <div className={styles.menutext}><span>Shop Women</span></div>
                     </Link>
@@ -28,7 +28,7 @@ function Jumbotron() {
                     <img src={image[1].src}></img>
                     <Link to="/new" >
                         <div className={styles.backgroundImage}>
-                            <img src='assets/img/background-long.png'></img>
+                            <img src='assets/img/background1.png'></img>
                         </div>
                         <div className={styles.menutext}><span>Shop New</span></div>
                     </Link>
@@ -37,7 +37,7 @@ function Jumbotron() {
                     <img src={image[2].src}></img>
                     <Link to="/man" >
                         <div className={styles.backgroundImage}>
-                            <img src='assets/img/background-long.png'></img>
+                            <img src='assets/img/background2.png'></img>
                         </div>
                         <div className={styles.menutext}><span>Shop Man</span></div>
                     </Link>

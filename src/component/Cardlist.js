@@ -1,9 +1,14 @@
 import styles from '../css/CardList.module.css';
-
+import { useParams } from 'react-router-dom';
 function CardList(props) {
+  let {category} = useParams();
+  console.log(category);
   return (
     <div className={styles.cardContainer}>
-      <p>New Drops</p>
+      {
+        category === undefined ? <p>New Drops</p> : null
+      }
+      
       <ul className={styles.cardList}>
         {
           props.tshirts.map((tshirt,i) => {
