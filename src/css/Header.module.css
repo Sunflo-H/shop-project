@@ -1,0 +1,79 @@
+header {
+    display: flex;
+    border: 1px solid black;
+    height: 4rem;
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    flex-grow: 1;
+    border-right: 1px solid black;
+    max-width: 12%;
+    min-width: 100px;
+    text-align: center;
+    line-height: 3.8rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: var(--background-color);
+    box-sizing: border-box;
+  }
+  .logo a {
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+  .menu {
+    display: flex;
+    min-width: 900px;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 3.8rem;
+    box-sizing: border-box;
+  }
+  
+  .menu ul {
+    display: flex;
+    float: right;
+    width: 100%;
+    position: relative;
+    margin: 0px 0px 0px calc(100% - 700px);
+    box-sizing: border-box;
+    border-right: 1px solid black;
+  }
+  .menu ul li {
+    height: 100%;
+    cursor: pointer;
+    float: left;
+    flex-basis: 40%;
+    box-sizing: border-box;
+  }
+  .menu ul li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .menu ul li:hover {
+    background-color: black;
+  }
+  .menu ul li:hover a{
+    color: var(--background-color);
+  }
+  
+  .login {
+    flex-grow: 1;
+    min-width: 300px;
+    max-width: 20%;
+    text-align: center;
+    line-height: 4rem;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+  }
+  .userIcon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  .userIcon + span {
+    position: relative;
+    top: -2px;
+  }
