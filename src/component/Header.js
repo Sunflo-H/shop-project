@@ -3,7 +3,7 @@ import styles from '../css/Header.module.css';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
-const Header = () => {
+function Header() {
     return (
         <header>
             <div className={styles.logo}><Link to={'/'}>T SHOP</Link></div>

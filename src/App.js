@@ -12,6 +12,7 @@ import Test2 from './component/Test2';
 import Test3 from './component/Test3';
 import SubPage from './component/SubPage';
 import Sale from './component/Sale';
+import Footer from './component/Footer';
 
 
 function App() {
@@ -37,8 +38,7 @@ function App() {
         <Header />
         <SubPage tshirts={tshirts}></SubPage>
       </Route>
-      {/* 푸터 */}
-      {/* <Footer></Footer>   */}
+      <Footer></Footer>  
     </div>
   );
 }
