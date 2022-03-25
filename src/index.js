@@ -10,9 +10,9 @@ import Study from './study/Study';
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      <App />
+      {/* <App /> */}
       {/* <Test3></Test3> */}
-      {/* <Study></Study> */}
+      <Study></Study>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
