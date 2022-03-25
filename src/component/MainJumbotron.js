@@ -12,7 +12,10 @@ function Jumbotron() {
         <div className={styles.jumbotron}>
             <div className={styles.textContainer}>
                 <p>T SHOP</p>
-                <div>There’s One for Everyone</div>
+                <div>
+                    There’s One for Everyone
+                    <div className={styles.blindContainer}></div>
+                </div>
             </div>
             <div className={styles.imgContainer}>
                 <div className={styles.smallImage}>
