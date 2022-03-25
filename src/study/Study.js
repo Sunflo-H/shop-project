@@ -58,10 +58,6 @@ function App() {
     setUsers(users.filter(user => user.id !== id));
   };
   const onToggle = id => {
-    let newUsers = users.map(user =>
-      user.id === id ? { ...user, active: !user.active } : user
-    );
-    console.log(newUsers);
     setUsers(
       users.map(user =>
         user.id === id ? { ...user, active: !user.active } : user
