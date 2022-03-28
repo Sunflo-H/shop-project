@@ -1,6 +1,7 @@
 import React from 'react';
 
 const CreateUser = ({ username, email, onChange, onCreate }) => {
+  console.log("크리에이트 유저 등록 렌더링");
   return (
     <div>
       <input
@@ -20,5 +21,5 @@ const CreateUser = ({ username, email, onChange, onCreate }) => {
   );
 };
 
-// export default React.memo(CreateUser);
-export default CreateUser;
+export default React.memo(CreateUser);
+// export default CreateUser;

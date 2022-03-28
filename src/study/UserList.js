@@ -1,6 +1,7 @@
 import React from 'react';
-// const User = React.memo(
+const User = React.memo(
 function User({ user, onRemove, onToggle }) {
+  console.log("유저 목록 하나하나 렌더링");
   return (
     <div>
       <b
@@ -18,7 +19,7 @@ function User({ user, onRemove, onToggle }) {
     </div>
   );
 }
-// );
+);
 
 function UserList({ users, onRemove, onToggle }) {
   return (
@@ -35,5 +36,5 @@ function UserList({ users, onRemove, onToggle }) {
   );
 }
 
-// export default React.memo(UserList);
-export default UserList;
+export default React.memo(UserList);
+// export default UserList;
