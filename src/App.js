@@ -6,12 +6,10 @@ import data from './data.js';
 
 import Header from './component/Header';
 import Jumbotron from './component/MainJumbotron';
-import Card from './component/CardList';
-import Test from './component/Test';
-import Test2 from './component/Test2';
-import Test3 from './component/Test3';
+import CardList from './component/CardList';
 import SubPage from './component/SubPage';
 import Sale from './component/Sale';
+import Detail from './component/Detail';
 import Footer from './component/Footer';
 
 
@@ -27,18 +25,23 @@ function App() {
   return (
     <div className={styles.App}>
 
-      <Route exact path={"/"}>
-        <Header />
-        <Jumbotron></Jumbotron>
-        <Card tshirts={getNewTshirts()}></Card>
-        <Sale></Sale>
+      <Header />
 
+      <Route exact path={"/"}>
+        <Jumbotron />
+        <CardList tshirts={getNewTshirts()} />
+        <Sale />
       </Route>
+
       <Route path="/:category">
-        <Header />
-        <SubPage tshirts={tshirts}></SubPage>
+        <SubPage tshirts={tshirts} />
       </Route>
-      <Footer></Footer>  
+
+      <Route path="/:category/detail/:key">
+        <Detail />
+      </Route>
+
+      <Footer />
     </div>
   );
 }

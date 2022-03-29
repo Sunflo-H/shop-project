@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import SubJumbotron from './SubJumbotron';
-import Card from './CardList';
+import CardList from './CardList';
 import { useParams } from "react-router-dom";
 
 function SubPage(props) {
@@ -24,21 +24,21 @@ function SubPage(props) {
         return (
             <div>
                 <SubJumbotron category = {category}></SubJumbotron>
-                <Card tshirts={sortTshirt(category)}></Card>
+                <CardList tshirts={sortTshirt(category)}></CardList>
             </div>
         )
     } else if (category === "man") {    
         return (
             <div>
                 <SubJumbotron category = {category}></SubJumbotron>
-                <Card tshirts={sortTshirt(category)}></Card>
+                <CardList tshirts={sortTshirt(category)}></CardList>
             </div>
         )
     } else if (category === "new") {
         return (
             <div>
                 <SubJumbotron category = {category}></SubJumbotron>
-                <Card tshirts={sortTshirt(category)}></Card>
+                <CardList tshirts={sortTshirt(category)}></CardList>
             </div>
         )
     } else {
