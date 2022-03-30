@@ -5,6 +5,7 @@ import styles from './App.module.css';
 import data from './data.js';
 
 import Header from './component/Header';
+import Home from './component/Home';
 import Jumbotron from './component/MainJumbotron';
 import CardList from './component/CardList';
 import SubPage from './component/SubPage';
@@ -27,19 +28,19 @@ function App() {
 
       <Header />
 
-      <Route exact path={"/"}>
-        <Jumbotron />
-        <CardList tshirts={getNewTshirts()} />
-        <Sale />
-      </Route>
+      <Switch>
+        <Route exact path={"/"} >
+          <Home getNewTshirts={getNewTshirts}/>
+        </Route>
 
-      <Route path="/:category">
-        <SubPage tshirts={tshirts} />
-      </Route>
-
-      <Route path="/:category/detail/:key">
-        <Detail />
-      </Route>
+        <Route path="/:category/detail/:key">
+          <Detail tshirt={tshirts}/>
+        </Route>
+        
+        <Route path="/:category">
+          <SubPage tshirts={tshirts} />
+        </Route>
+      </Switch>
 
       <Footer />
     </div>

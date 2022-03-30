@@ -5,18 +5,11 @@ import { Route, Link, Switch } from 'react-router-dom';
 
 function Jumbotron() {
     let [image, setImage] = useState(data);
-    let [link, setLink] = useState(['/woman','/new','/man']);
+    let [link, setLink] = useState(['/woman', '/new', '/man']);
     let [shopName, setShopName] = useState(['Shop Woman', 'Shop New', 'Shop Man']);
 
     return (
         <div className={styles.jumbotron}>
-            <div className={styles.textContainer}>
-                <p>T SHOP</p>
-                <div>
-                    There’s One for Everyone
-                    <div className={styles.blindContainer}></div>
-                </div>
-            </div>
             <div className={styles.imgContainer}>
                 <div className={styles.smallImage}>
                     <img src={image[0].src}></img>

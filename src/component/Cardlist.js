@@ -1,13 +1,19 @@
 import styles from '../css/CardList.module.css';
 import { useParams, Link } from 'react-router-dom';
+import React from 'react';
 
-const Card = ({key, tshirt}) => {
+const Card = ({ key, tshirt }) => {
+  console.log("카드 하나하나 렌더링");
   let { category } = useParams();
+  if(category === undefined) {
+    category = "new"
+  };
+  console.log(key);
   return (
     <li key={key}>
-      <div className={styles.imageContainer}>
+      <div className={styles.imageContainer} >
         <Link to={`/${category}/detail/${key}`}>
-        <img src={tshirt.src}></img>
+          <img src={tshirt.src}></img>
         </Link>
       </div>
       <div className={styles.textContainer}>
@@ -19,17 +25,18 @@ const Card = ({key, tshirt}) => {
 }
 
 function CardList(props) {
+  console.log("카드 리스트 렌더링");
   let { category } = useParams();
   return (
     <div className={styles.cardContainer}>
-      {
-        category === undefined ? <p>New Drops</p> : null
-      }
-
       <ul className={styles.cardList}>
         {
-          props.tshirts.map((tshirt, i) => {
-            return <Card key={i} tshirt={tshirt} ></Card>
+          props.tshirts.map(tshirt => {
+            return (
+              <React.Fragment key={tshirt.id}>
+                <Card id={tshirt.id} tshirt={tshirt} />
+              </React.Fragment>
+            )
           })
         }
       </ul>
