@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 function SubPage(props) {
     const { category } = useParams();
 
-    function sortTshirt(category) {
+    function getSortTshirt(category) {
         let newData;
         if (category === "new") newData = getNewTshirts();
         else newData = props.tshirts.filter(tshirt => tshirt.gender === category);
@@ -24,21 +24,21 @@ function SubPage(props) {
         return (
             <div>
                 <SubJumbotron category = {category}></SubJumbotron>
-                <CardList tshirts={sortTshirt(category)}></CardList>
+                <CardList tshirts={getSortTshirt(category)}></CardList>
             </div>
         )
     } else if (category === "man") {    
         return (
             <div>
                 <SubJumbotron category = {category}></SubJumbotron>
-                <CardList tshirts={sortTshirt(category)}></CardList>
+                <CardList tshirts={getSortTshirt(category)}></CardList>
             </div>
         )
     } else if (category === "new") {
         return (
             <div>
                 <SubJumbotron category = {category}></SubJumbotron>
-                <CardList tshirts={sortTshirt(category)}></CardList>
+                <CardList tshirts={getSortTshirt(category)}></CardList>
             </div>
         )
     } else {

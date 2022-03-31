@@ -2,17 +2,16 @@ import styles from '../css/CardList.module.css';
 import { useParams, Link } from 'react-router-dom';
 import React from 'react';
 
-const Card = ({ key, tshirt }) => {
+const Card = ({ id, tshirt }) => {
   console.log("카드 하나하나 렌더링");
   let { category } = useParams();
   if(category === undefined) {
     category = "new"
   };
-  console.log(key);
   return (
-    <li key={key}>
+    <li key={id}>
       <div className={styles.imageContainer} >
-        <Link to={`/${category}/detail/${key}`}>
+        <Link to={`/${category}/detail/${id}`}>
           <img src={tshirt.src}></img>
         </Link>
       </div>

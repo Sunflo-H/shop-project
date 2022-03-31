@@ -33,7 +33,7 @@ function App() {
           <Home getNewTshirts={getNewTshirts}/>
         </Route>
 
-        <Route path="/:category/detail/:key">
+        <Route path="/:category/detail/:id">
           <Detail tshirt={tshirts}/>
         </Route>
         
