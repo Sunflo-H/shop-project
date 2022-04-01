@@ -12,9 +12,16 @@ const Detail = ({tshirts}) => {
     const [tshirt, setTshirt] = useState(()=>getTshirts());
 
     function getTshirts() {
-        return tshirts.find(tshirt => tshirt.id === Number(id));
+        let tshirt = tshirts.find(tshirt => tshirt.id === Number(id));
+        isSale(tshirt);
+        return tshirt;
     }
 
+    function isSale(tshirt) {
+        if(tshirt.gender === "woman"){
+            tshirt.sale = true;
+        }
+    }
     
     return (
         <div className={styles.detailContainer}>
@@ -26,7 +33,10 @@ const Detail = ({tshirts}) => {
                 </div>
 
                 <div className={styles.nameContainer}>
-                    <div>
+                    {
+                        tshirt.sale === true ? <div className={styles.sale}>SALE</div> : null
+                    }
+                    <div className={styles.name}>
                         <span>{tshirt.name}</span>
                     </div>
                 </div>
@@ -45,10 +55,6 @@ const Detail = ({tshirts}) => {
                         <button>Add to Cart</button>
                     </div>
                 </div>
-
-                <h1>{category}</h1>
-                <h1>{id}</h1>
-                <h1>{tshirt.name}</h1>
             </div>
         </div>
     )
