@@ -7,6 +7,7 @@ let tshirt = [
         stock: 10,
         gender: "woman",
         src: "assets/img/t1.webp",
+        sale: false,
     },
     {
         id: 2,
@@ -16,6 +17,7 @@ let tshirt = [
         stock: 10,
         gender: "man",
         src: "assets/img/t2.webp",
+        sale: false,
     },
     {
         id: 3,
@@ -25,6 +27,7 @@ let tshirt = [
         stock: 20,
         gender: "man",
         src: "assets/img/t3.webp",
+        sale: false,
     },
     {
         id: 4,
@@ -34,6 +37,7 @@ let tshirt = [
         stock: 20,
         gender: "man",
         src: "assets/img/t4.webp",
+        sale: false,
     },
     {
         id: 5,
@@ -43,6 +47,7 @@ let tshirt = [
         stock: 20,
         gender: "man",
         src: "assets/img/t5.webp",
+        sale: false,
     },
     {
         id: 6,
@@ -52,6 +57,7 @@ let tshirt = [
         stock: 20,
         gender: "woman",
         src: "assets/img/t6.webp",
+        sale: false,
     },
     {
         id: 7,
@@ -61,6 +67,7 @@ let tshirt = [
         stock: 10,
         gender: "woman",
         src: "assets/img/t7.webp",
+        sale: false,
     },
     {
         id: 8,
@@ -70,6 +77,7 @@ let tshirt = [
         stock: 20,
         gender: "woman",
         src: "assets/img/t8.webp",
+        sale: false,
     },
     {
         id: 9,
@@ -79,6 +87,7 @@ let tshirt = [
         stock: 20,
         gender: "man",
         src: "assets/img/t9.webp",
+        sale: false,
     },
     {
         id: 10,
@@ -88,6 +97,7 @@ let tshirt = [
         stock: 20,
         gender: "woman",
         src: "assets/img/t10.webp",
+        sale: false,
     },
     {
         id: 11,
@@ -97,6 +107,7 @@ let tshirt = [
         stock: 20,
         gender: "man",
         src: "assets/img/t11.webp",
+        sale: false,
     },
     {
         id: 12,
@@ -106,6 +117,7 @@ let tshirt = [
         stock: 20,
         gender: "woman",
         src: "assets/img/t12.webp",
+        sale: false,
     },
     {
         id: 13,
@@ -115,6 +127,7 @@ let tshirt = [
         stock: 20,
         gender: "man",
         src: "assets/img/t13.webp",
+        sale: false,
     },
     {
         id: 14,
@@ -124,6 +137,7 @@ let tshirt = [
         stock: 20,
         gender: "woman",
         src: "assets/img/t14.webp",
+        sale: false,
     },
     {
         id: 15,
@@ -133,6 +147,8 @@ let tshirt = [
         stock: 20,
         gender: "woman",
         src: "assets/img/t15.webp",
+        sale: false,
+        
     },
     {
         id: 16,
@@ -142,6 +158,7 @@ let tshirt = [
         stock: 20,
         gender: "man",
         src: "assets/img/t16.webp",
+        sale: false,
     },
 ];
 

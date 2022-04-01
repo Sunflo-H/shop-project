@@ -34,7 +34,7 @@ function App() {
         </Route>
 
         <Route path="/:category/detail/:id">
-          <Detail tshirt={tshirts}/>
+          <Detail tshirts={tshirts}/>
         </Route>
         
         <Route path="/:category">
