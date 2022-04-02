@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import styles from '../css/Detail.module.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -11,6 +13,8 @@ const Detail = ({ tshirts }) => {
     const { category, id } = useParams();
     const [tshirt, setTshirt] = useState(() => getTshirts());
     const [input, setInput] = useState(1);
+    const [selected, setSelected] = useState('free');
+    const [count, setCount] = useState(0);
 
     function getTshirts() {
         let tshirt = tshirts.find(tshirt => tshirt.id === Number(id));
@@ -27,8 +31,14 @@ const Detail = ({ tshirts }) => {
     function onChange(event) {
         setInput(event.target.value);
     }
-    
 
+    function onChangeSelect(event) {
+        console.log(event.target.value);
+        console.log(selected);
+        setSelected(event.target.value);
+    }
+
+    console.log(selected);
     return (
         <div className={styles.detailContainer}>
             <div className={styles.wrapper}>
@@ -59,7 +69,7 @@ const Detail = ({ tshirts }) => {
                         <table border="1" >
                             <tbody>
                                 <tr>
-                                    <td>제품명</td>
+                                    <td>상품명</td>
                                     <td>{tshirt.name}</td>
                                 </tr>
                                 <tr>
@@ -78,12 +88,23 @@ const Detail = ({ tshirts }) => {
                         </table>
 
                         <div className={styles.cartContainer}>
-                            
-                            <select>
-                                <option value="" selected>사이즈를 선택하세요</option>
-                                <option value="free">free</option>
-                            </select>
-                            <button>Add to Cart</button>
+                            <div className={styles.select} onChange={onChangeSelect} value={selected}> 
+                                <select>
+                                    <option defaultValue="옵션선택">옵션 선택</option>
+                                    <option defaultValue="free">free</option>
+                                </select>
+                            </div>
+                            <div className={styles.selectTshirt}>
+                                
+                            </div>
+                            <div className={styles.total}>
+                                <div>총 상품 금액</div>
+                                <div>0원</div>
+                            </div>
+                        </div>
+                        <div className={styles.buttons}>
+                            <button>바로구매</button>
+                            <button><FontAwesomeIcon icon={faBasketShopping} className={styles.basketIcon} /></button>
                         </div>
                     </div>
                 </div>

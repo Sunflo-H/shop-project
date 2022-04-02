@@ -1,9 +1,11 @@
 .detailContainer {
     height: 800px;
-    border: 5px solid green;
+    /* border: 5px solid green; */
+    margin-top: 60px;
 }
 .detailContainer .wrapper {
     width: 900px;
+    min-width: 900px;
     /* border: 5px solid red; */
     margin: auto;
 }
@@ -54,7 +56,7 @@
     margin-top: 20px;
 }
 .detailContainer .wrapper .imageContainer {
-    width: 500px;
+    width: 600px;
     border: 1px solid #ddd;
     padding: 10px;
     box-sizing: border-box;
@@ -65,7 +67,8 @@
 
 .detailContainer .wrapper .textContainer {
     /* border: 1px solid red; */
-    margin-left: 40px;
+    /* margin-left: 40px; */
+    margin: 0 40px;
     width: 40%;
 }
 .detailContainer .wrapper .textContainer .header {
@@ -88,7 +91,6 @@
 .detailContainer .wrapper .textContainer td {
     padding: 15px;
     font-size: 0.9rem;
-    /* border: 1px solid black; */
 }
 .detailContainer .wrapper .textContainer td:nth-child(2) {
     font-weight: bold;
@@ -96,10 +98,58 @@
 }
 
 .detailContainer .wrapper .textContainer .cartContainer {
-    border: 1px solid #ddd;
-    margin-left: 15px;
+    margin: 0 15px;
+    background-color: #f3f3f3;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
-.detailContainer .wrapper .textContainer .cartContainer select {
+.detailContainer .wrapper .textContainer .cartContainer .select  {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+.detailContainer .wrapper .textContainer .cartContainer .select select {
     display: block;
     width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.8rem;
+    padding: 5px;
+}
+
+.detailContainer .wrapper .textContainer .cartContainer .total {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+    padding: 16px 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    background-color: white;
+}
+
+.detailContainer .wrapper .textContainer .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 15px;
+    /* border: 1px solid red; */
+}
+.detailContainer .wrapper .textContainer .buttons button {
+    display: block;
+    cursor: pointer;
+}
+.detailContainer .wrapper .textContainer .buttons button:nth-child(1) {
+    background-color: black;
+    /* color: var(--background-color); */
+    color: white;
+    padding: 5px 75px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 1px solid #ddd;
+    
+}
+.detailContainer .wrapper .textContainer .buttons button:nth-child(2) {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #b2b2b2;
+    padding: 5px 10px;
 }
