@@ -28,19 +28,21 @@ function App() {
 
       <Header />
 
-      <Switch>
-        <Route exact path={"/"} >
-          <Home getNewTshirts={getNewTshirts}/>
-        </Route>
+      <main>
+        <Switch>
+          <Route exact path={"/"} >
+            <Home getNewTshirts={getNewTshirts}/>
+          </Route>
 
-        <Route path="/:category/detail/:id">
-          <Detail tshirts={tshirts}/>
-        </Route>
-        
-        <Route path="/:category">
-          <SubPage tshirts={tshirts} />
-        </Route>
-      </Switch>
+          <Route path="/:category/detail/:id">
+            <Detail tshirts={tshirts}/>
+          </Route>
+          
+          <Route path="/:category">
+            <SubPage tshirts={tshirts} />
+          </Route>
+        </Switch>
+      </main>
 
       <Footer />
     </div>

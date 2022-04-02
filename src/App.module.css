@@ -8,5 +8,9 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-
+main {
+  min-height: 80%;
+  /* border: 5px solid red; */
+  padding-bottom: 200px;
+}
 

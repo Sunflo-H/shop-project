@@ -1,5 +1,5 @@
 .detailContainer {
-    height: 1100px;
+    height: 800px;
     border: 5px solid green;
 }
 .detailContainer .wrapper {
@@ -8,14 +8,14 @@
     margin: auto;
 }
 
-.detailContainer .wrapper .linkContainer {
+.detailContainer .wrapper .historyContainer {
     /* border: 1px solid palevioletred; */
 }
-.detailContainer .wrapper .linkContainer span {
+.detailContainer .wrapper .historyContainer span {
     color: #b2b2b2;
     font-size: 0.9rem;
 }
-.detailContainer .wrapper .linkContainer a {
+.detailContainer .wrapper .historyContainer a {
     color: #b2b2b2;
     font-size: 0.9rem;
 }
@@ -29,11 +29,12 @@
     background-color: var(--background-color);
     width: 50px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 15px;
     line-height: 1rem;
     padding: 4px 6px;
     border-radius: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     /* border: 1px solid red; */
 
 }
@@ -43,6 +44,7 @@
     font-size: 1rem;
     font-weight: bold;
     line-height: 22px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .detailContainer .wrapper .infoContainer {
@@ -60,7 +62,44 @@
 .detailContainer .wrapper .imageContainer img {
     width: 100%;
 }
+
 .detailContainer .wrapper .textContainer {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-left: 40px;
+    width: 40%;
+}
+.detailContainer .wrapper .textContainer .header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+.detailContainer .wrapper .textContainer .header p{
+    font-weight: 600;
+    font-size: 1.1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.detailContainer .wrapper .textContainer .header span {
+    color: #b2b2b2;
+    font-size: 0.9rem;
+}
+
+.detailContainer .wrapper .textContainer table {
+    margin: 15px 0 0 10px;
+}
+.detailContainer .wrapper .textContainer td {
+    padding: 15px;
+    font-size: 0.9rem;
+    /* border: 1px solid black; */
+}
+.detailContainer .wrapper .textContainer td:nth-child(2) {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.detailContainer .wrapper .textContainer .cartContainer {
+    border: 1px solid #ddd;
+    margin-left: 15px;
+}
+.detailContainer .wrapper .textContainer .cartContainer select {
+    display: block;
+    width: 100%;
 }
