@@ -33,12 +33,9 @@ const Detail = ({ tshirts }) => {
     }
 
     function onChangeSelect(event) {
-        console.log(event.target.value);
-        console.log(selected);
         setSelected(event.target.value);
     }
 
-    console.log(selected);
     return (
         <div className={styles.detailContainer}>
             <div className={styles.wrapper}>
@@ -91,11 +88,14 @@ const Detail = ({ tshirts }) => {
                             <div className={styles.select} onChange={onChangeSelect} value={selected}> 
                                 <select>
                                     <option defaultValue="옵션선택">옵션 선택</option>
-                                    <option defaultValue="free">free</option>
+                                    <option defaultValue="free" >free</option>
                                 </select>
                             </div>
+                            {
+                                selected !== "옵션 선택" ? <SelectedTshirt /> : null
+                            }
                             <div className={styles.selectTshirt}>
-                                
+
                             </div>
                             <div className={styles.total}>
                                 <div>총 상품 금액</div>
