@@ -8,28 +8,6 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
-const History = ({ category }) => {
-    return (
-        <div className={styles.historyContainer}>
-            <Link to={'/'}>Home</Link>
-            <span>&nbsp;&gt;&nbsp;</span>
-            <Link to={`/${category}`}>{capitalize(category)}</Link>
-        </div>
-    )
-}
-
-const Name = ({tshirt}) => {
-    return (
-        <div className={styles.nameContainer}>
-            {
-                tshirt.sale === true ? <div className={styles.sale}>SALE</div> : null
-            }
-            <div className={styles.name}>
-                <span>{tshirt.name}</span>
-            </div>
-        </div>
-    )
-}
 
 const Detail = ({ tshirts }) => {
     const { category, id } = useParams();
@@ -55,8 +33,20 @@ const Detail = ({ tshirts }) => {
     return (
         <div className={styles.detailContainer}>
             <div className={styles.wrapper}>
-                <History category={category} />
-                <Name tshirt={tshirt}/>
+                <div className={styles.historyContainer}>
+                    <Link to={'/'}>Home</Link>
+                    <span>&nbsp;&gt;&nbsp;</span>
+                    <Link to={`/${category}`}>{capitalize(category)}</Link>
+                </div>
+
+                <div className={styles.nameContainer}>
+                    {
+                        tshirt.sale === true ? <div className={styles.sale}>SALE</div> : null
+                    }
+                    <div className={styles.name}>
+                        <span>{tshirt.name}</span>
+                    </div>
+                </div>
 
                 <div className={styles.infoContainer}>
                     <div className={styles.imageContainer}>
@@ -67,7 +57,7 @@ const Detail = ({ tshirts }) => {
                             <p>Product Info <span>제품정보</span></p>
                         </div>
 
-                        <table>
+                        <table >
                             <tbody>
                                 <tr>
                                     <td>상품명</td>
@@ -89,7 +79,7 @@ const Detail = ({ tshirts }) => {
                         </table>
 
                         <div className={styles.cartContainer}>
-                            <div className={styles.select} onChange={onChangeSelect} value={selected}>
+                            <div className={styles.select} onChange={onChangeSelect} value={selected}> 
                                 <select>
                                     <option defaultValue="옵션선택">옵션 선택</option>
                                     <option defaultValue="free" >free</option>
