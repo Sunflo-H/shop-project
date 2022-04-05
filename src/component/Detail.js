@@ -4,15 +4,19 @@ import { useParams, Link } from "react-router-dom";
 import styles from '../css/Detail.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
+import SelectedItemList from "./SelectedItemList";
+import OptionList from "./OptionList";
 
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+
 const Detail = ({ tshirts }) => {
     const { category, id } = useParams();
     const [tshirt, setTshirt] = useState(() => getTshirts());
-    const [selected, setSelected] = useState('free');
+    const [selectedSize, setSelectedSize] = useState('옵션 선택');
+    const [selectedItems, setSelectedItems] = useState([]);
 
     function getTshirts() {
         let tshirt = tshirts.find(tshirt => tshirt.id === Number(id));
@@ -26,10 +30,23 @@ const Detail = ({ tshirts }) => {
         }
     }
 
-    function onChangeSelect(event) {
-        setSelected(event.target.value);
+    function onChangeSelectedSize(event) {
+        setSelectedSize(event.target.value);
+        addItem();
     }
 
+    function addItem() {
+        let item = {
+            size: selectedSize,
+            num: 1
+        }
+        if(selectedSize !== '옵션 선택') setSelectedItems(selectedItems.concat(item));
+    }
+
+    function removeItem(size) {
+        setSelectedItems(selectedItems.filter((item) => item.size !== size ));
+    }
+    console.log(selectedSize);
     return (
         <div className={styles.detailContainer}>
             <div className={styles.wrapper}>
@@ -79,11 +96,13 @@ const Detail = ({ tshirts }) => {
                         </table>
 
                         <div className={styles.cartContainer}>
-                            <div className={styles.select} onChange={onChangeSelect} value={selected}> 
-                                <select>
-                                    <option defaultValue="옵션선택">옵션 선택</option>
-                                    <option defaultValue="free" >free</option>
+                            <div className={styles.select} > 
+                                <select onChange={onChangeSelectedSize} value={selectedSize}> 
+                                    <OptionList size={tshirt.size} />
                                 </select>
+                            </div>
+                            <div className={styles.selectedItemListContainer}>
+                                <SelectedItemList max={tshirt.stock} items={selectedItems}/>
                             </div>
                             <div className={styles.total}>
                                 <div>총 상품 금액</div>
