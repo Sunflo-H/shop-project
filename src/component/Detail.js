@@ -8,13 +8,19 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
-
+const History = () => {
+    // return (
+    //     <div className={styles.historyContainer}>
+    //                 <Link to={'/'}>Home</Link>
+    //                 <span>&nbsp;&gt;&nbsp;</span>
+    //                 <Link to={`/${category}`}>{capitalize(category)}</Link>
+    //             </div>
+    // )
+}
 const Detail = ({ tshirts }) => {
     const { category, id } = useParams();
     const [tshirt, setTshirt] = useState(() => getTshirts());
-    const [input, setInput] = useState(1);
     const [selected, setSelected] = useState('free');
-    const [count, setCount] = useState(0);
 
     function getTshirts() {
         let tshirt = tshirts.find(tshirt => tshirt.id === Number(id));
@@ -26,10 +32,6 @@ const Detail = ({ tshirts }) => {
         if (tshirt.gender === "woman") {
             tshirt.sale = true;
         }
-    }
-
-    function onChange(event) {
-        setInput(event.target.value);
     }
 
     function onChangeSelect(event) {
@@ -63,7 +65,7 @@ const Detail = ({ tshirts }) => {
                             <p>Product Info <span>제품정보</span></p>
                         </div>
 
-                        <table border="1" >
+                        <table>
                             <tbody>
                                 <tr>
                                     <td>상품명</td>
@@ -90,12 +92,6 @@ const Detail = ({ tshirts }) => {
                                     <option defaultValue="옵션선택">옵션 선택</option>
                                     <option defaultValue="free" >free</option>
                                 </select>
-                            </div>
-                            {
-                                selected !== "옵션 선택" ? <SelectedTshirt /> : null
-                            }
-                            <div className={styles.selectTshirt}>
-
                             </div>
                             <div className={styles.total}>
                                 <div>총 상품 금액</div>

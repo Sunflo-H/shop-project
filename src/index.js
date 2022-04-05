@@ -11,8 +11,8 @@ import Counter from './study/Counter';
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      {/* <App /> */}
-      <Study />
+      <App />
+      {/* <Study /> */}
       {/* <Counter /> */}
     </HashRouter>
   </React.StrictMode>,
