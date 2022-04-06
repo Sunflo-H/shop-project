@@ -160,7 +160,7 @@ const Detail = ({ tshirts }) => {
                                 </select>
                             </div>
                             <div className={styles.selectedItemListContainer}>
-                                <SelectedItemList max={tshirt.stock} sizes={state.sizes} removeItem={removeItem}/>
+                                <SelectedItemList max={tshirt.stock} price={tshirt.price} sizes={state.sizes} removeItem={removeItem}/>
                             </div>
                             <div className={styles.total}>
                                 <div>총 상품 금액</div>

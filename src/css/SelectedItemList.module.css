@@ -1,0 +1,55 @@
+.itemContainer {
+    display: flex;
+    width: 100%;
+    height: 47px;
+    padding: 13px 10px;
+    background-color: white;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.itemContainer > * {
+    line-height: 20px;
+}
+
+.itemContainer .size {
+    color:#777
+}
+
+.itemContainer .numContainer {
+    position: relative;
+    display: flex;
+    /* border: 1px solid red; */
+    top: -2px;
+}
+.itemContainer .numContainer .minus,
+.itemContainer .numContainer .plus {
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    box-sizing: border-box;
+    padding: 3px 2px;
+    text-align: center;    
+    cursor: pointer;
+}
+.itemContainer .numContainer input[type=text] {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border: none;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    outline: none;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.itemContainer .price {
+    color: #777;
+}
+
+.itemContainer .delete {
+    cursor: pointer;
+}
