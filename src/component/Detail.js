@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import styles from '../css/Detail.module.css'
@@ -10,13 +10,48 @@ import OptionList from "./OptionList";
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
+const initialState = {
+    size: '옵션 선택',
+    sizes: [],
+}   
 
+function reducer(state, action) {
+    switch (action.type) {
+        case 'CHANGE_SIZE' :
+            return {
+                ...state,
+                size: action.size
+            }
+        case 'ADD_ITEM' :
+            console.log("아이템 추가 함수");
+            return {
+                ...state,
+                sizes:[...state.sizes, action.size]
+            }
+        case 'REMOVE_ITEM' : 
+        console.log("아이템 제거 함수");
+        console.log(state.sizes);
+            let newSizes = state.sizes.filter((size) => {
+                console.log(size);
+                console.log(action);
+                console.log(action.size);
+                return size !== action.size;
+            });
+            console.log(newSizes);
+            return {
+                ...state,
+                sizes:[newSizes]
+            }
+    }
+}
 
 const Detail = ({ tshirts }) => {
     const { category, id } = useParams();
     const [tshirt, setTshirt] = useState(() => getTshirts());
-    const [selectedSize, setSelectedSize] = useState('옵션 선택');
-    const [selectedItems, setSelectedItems] = useState([]);
+    // const [selectedSize, setSelectedSize] = useState('옵션 선택');
+    // const [selectedItems, setSelectedItems] = useState([]);
+
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     function getTshirts() {
         let tshirt = tshirts.find(tshirt => tshirt.id === Number(id));
@@ -31,22 +66,36 @@ const Detail = ({ tshirts }) => {
     }
 
     function onChangeSelectedSize(event) {
-        setSelectedSize(event.target.value);
-        addItem();
+        const size = event.target.value;
+        if(size === '옵션 선택') return;
+        dispatch({
+            type: 'CHANGE_SIZE',
+            size
+        })
+        addItem(size);
     }
 
-    function addItem() {
-        let item = {
-            size: selectedSize,
-            num: 1
-        }
-        if(selectedSize !== '옵션 선택') setSelectedItems(selectedItems.concat(item));
+    function addItem(size) {
+        dispatch({
+            type: 'ADD_ITEM',
+            size
+        })
+        // let item = {
+        //     size: selectedSize,
+        //     num: 1
+        // }
+        // if(selectedSize !== '옵션 선택') setSelectedItems(selectedItems.concat(item));
     }
 
     function removeItem(size) {
-        setSelectedItems(selectedItems.filter((item) => item.size !== size ));
+        dispatch({
+            type: 'REMOVE_ITEM',
+            size
+        })
+        // setSelectedItems(selectedItems.filter((item) => item.size !== size ));
     }
-    console.log(selectedSize);
+    
+    console.log(state);
     return (
         <div className={styles.detailContainer}>
             <div className={styles.wrapper}>
@@ -97,12 +146,13 @@ const Detail = ({ tshirts }) => {
 
                         <div className={styles.cartContainer}>
                             <div className={styles.select} > 
-                                <select onChange={onChangeSelectedSize} value={selectedSize}> 
+                            {/* select에 value 있었는데 reducer로 바꾼 지금 value 있어야하나??? */}
+                                <select onChange={onChangeSelectedSize}> 
                                     <OptionList size={tshirt.size} />
                                 </select>
                             </div>
                             <div className={styles.selectedItemListContainer}>
-                                <SelectedItemList max={tshirt.stock} items={selectedItems}/>
+                                <SelectedItemList max={tshirt.stock} sizes={state.sizes} removeItem={removeItem}/>
                             </div>
                             <div className={styles.total}>
                                 <div>총 상품 금액</div>
