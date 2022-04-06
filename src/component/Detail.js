@@ -23,12 +23,7 @@ function reducer(state, action) {
                 size: action.size
             }
         case 'ADD_ITEM' :
-            console.log("아이템 추가 함수");
-            console.log(action.size);
             let findSize = state.sizes.find((size) => size === action.size);
-            console.log(findSize);
-            // 같은 사이즈를 찾으면 그 값을 반환
-            // 못찾으면 undefined
             if(findSize === undefined){
                 return {
                     ...state,
@@ -39,13 +34,7 @@ function reducer(state, action) {
             }
             
         case 'REMOVE_ITEM' : 
-        console.log("아이템 제거 함수");
-        console.log(state.sizes);
-        console.log(action.size);
-            let newSizes = state.sizes.filter((size) => {
-                return size !== action.size;
-            });
-            console.log(newSizes);
+            let newSizes = state.sizes.filter((size) => size !== action.size);
             return {
                 ...state,
                 sizes: newSizes
@@ -56,8 +45,6 @@ function reducer(state, action) {
 const Detail = ({ tshirts }) => {
     const { category, id } = useParams();
     const [tshirt, setTshirt] = useState(() => getTshirts());
-    // const [selectedSize, setSelectedSize] = useState('옵션 선택');
-    // const [selectedItems, setSelectedItems] = useState([]);
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -88,11 +75,6 @@ const Detail = ({ tshirts }) => {
             type: 'ADD_ITEM',
             size
         })
-        // let item = {
-        //     size: selectedSize,
-        //     num: 1
-        // }
-        // if(selectedSize !== '옵션 선택') setSelectedItems(selectedItems.concat(item));
     }
 
     function removeItem(size) {
@@ -100,7 +82,6 @@ const Detail = ({ tshirts }) => {
             type: 'REMOVE_ITEM',
             size
         })
-        // setSelectedItems(selectedItems.filter((item) => item.size !== size ));
     }
     
     console.log(state);
@@ -145,10 +126,10 @@ const Detail = ({ tshirts }) => {
                                     <td>가격</td>
                                     <td>{tshirt.price}원</td>
                                 </tr>
-                                <tr>
+                                {/* <tr>
                                     <td>재고</td>
                                     <td>{tshirt.stock}</td>
-                                </tr>
+                                </tr> */}
                             </tbody>
                         </table>
 

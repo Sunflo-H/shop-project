@@ -24,22 +24,29 @@ function App() {
     return newTshirts;
   }
   return (
-    <div className={styles.App}>
+    <div className={styles.App} oncopy="return false" oncut="return false" onpaste="return false">
 
-      <Header />
+      
 
       <main>
         <Switch>
           <Route exact path={"/"} >
+            <Header />
             <Home getNewTshirts={getNewTshirts}/>
           </Route>
 
           <Route path="/:category/detail/:id">
+            <Header />
             <Detail tshirts={tshirts}/>
           </Route>
           
           <Route path="/:category">
+            <Header />
             <SubPage tshirts={tshirts} />
+          </Route>
+
+          <Route path="signUp">
+            <SignUp />
           </Route>
         </Switch>
       </main>
