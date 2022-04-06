@@ -6,7 +6,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 const SelectedItem = ({ max, size , removeItem}) => {
-    console.log(size);
+    console.log(size + '사이즈를 렌더링 했습니다.');
     // const [num, setNum] = useState(item.num);
     const [num, setNum] = useState(1);
     function onChange(event) {
@@ -28,9 +28,7 @@ const SelectedItem = ({ max, size , removeItem}) => {
 }
 
 const SelectedItemList = ({ max, sizes, removeItem }) => {
-    console.log(sizes[0]);
-    if(sizes[0] === undefined){
-        console.log("사이즈 아이템 배열의 첫 값이 undefined입니다.");
+    if(sizes.length === 0){
         return null;
     } else {
         return sizes.map((size, index) => {

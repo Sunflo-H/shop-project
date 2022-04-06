@@ -24,10 +24,20 @@ function reducer(state, action) {
             }
         case 'ADD_ITEM' :
             console.log("아이템 추가 함수");
-            return {
-                ...state,
-                sizes:[...state.sizes, action.size]
+            console.log(action.size);
+            let findSize = state.sizes.find((size) => size === action.size);
+            console.log(findSize);
+            // 같은 사이즈를 찾으면 그 값을 반환
+            // 못찾으면 undefined
+            if(findSize === undefined){
+                return {
+                    ...state,
+                    sizes:[...state.sizes, action.size]
+                }
+            } else {
+                return { ...state };
             }
+            
         case 'REMOVE_ITEM' : 
         console.log("아이템 제거 함수");
         console.log(state.sizes);
