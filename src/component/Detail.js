@@ -31,16 +31,14 @@ function reducer(state, action) {
         case 'REMOVE_ITEM' : 
         console.log("아이템 제거 함수");
         console.log(state.sizes);
+        console.log(action.size);
             let newSizes = state.sizes.filter((size) => {
-                console.log(size);
-                console.log(action);
-                console.log(action.size);
                 return size !== action.size;
             });
             console.log(newSizes);
             return {
                 ...state,
-                sizes:[newSizes]
+                sizes: newSizes
             }
     }
 }
@@ -123,7 +121,7 @@ const Detail = ({ tshirts }) => {
                             <p>Product Info <span>제품정보</span></p>
                         </div>
 
-                        <table >
+                        <table>
                             <tbody>
                                 <tr>
                                     <td>상품명</td>

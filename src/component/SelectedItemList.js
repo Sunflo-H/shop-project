@@ -29,13 +29,8 @@ const SelectedItem = ({ max, size , removeItem}) => {
 
 const SelectedItemList = ({ max, sizes, removeItem }) => {
     console.log(sizes[0]);
-    // if(sizes.length === 0) {
-    //     console.log("사이즈 아이템 배열의 길이가 0이라서 사이즈 목록이 보여지지 않습니다.");
-    //     return null;
-    // } else 
-    
     if(sizes[0] === undefined){
-        console.log("사이즈 아이템 배열의 첫 값이 빈 값이라 사이즈 목록이 보여지지 않습니다.");
+        console.log("사이즈 아이템 배열의 첫 값이 undefined입니다.");
         return null;
     } else {
         return sizes.map((size, index) => {
