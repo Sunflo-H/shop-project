@@ -12,6 +12,7 @@ import SubPage from './component/SubPage';
 import Sale from './component/Sale';
 import Detail from './component/Detail';
 import Footer from './component/Footer';
+import SignUp from './component/SignUp';
 
 
 function App() {
@@ -24,30 +25,28 @@ function App() {
     return newTshirts;
   }
   return (
-    <div className={styles.App} oncopy="return false" oncut="return false" onpaste="return false">
+    <div className={styles.App} >
 
-      
-
+      <Header />
       <main>
         <Switch>
           <Route exact path={"/"} >
-            <Header />
             <Home getNewTshirts={getNewTshirts}/>
           </Route>
 
           <Route path="/:category/detail/:id">
-            <Header />
+            {/* <Header /> */}
             <Detail tshirts={tshirts}/>
           </Route>
           
           <Route path="/:category">
-            <Header />
+            {/* <Header /> */}
             <SubPage tshirts={tshirts} />
           </Route>
 
-          <Route path="signUp">
+          {/* <Route path="signUp">
             <SignUp />
-          </Route>
+          </Route> */}
         </Switch>
       </main>
 

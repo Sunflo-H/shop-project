@@ -38,7 +38,6 @@ header {
     position: relative;
     margin: 0px 0px 0px calc(100% - 700px);
     box-sizing: border-box;
-    border-right: 1px solid black;
   }
   .menu ul li {
     height: 100%;
@@ -46,6 +45,7 @@ header {
     float: left;
     flex-basis: 40%;
     box-sizing: border-box;
+    border-right: 1px solid black;
   }
   .menu ul li a {
     display: block;

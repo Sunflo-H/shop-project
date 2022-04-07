@@ -13,31 +13,51 @@ function capitalize(str) {
 const initialState = {
     size: '옵션 선택',
     sizes: [],
-}   
+    totalCount: 0,
+}
 
 function reducer(state, action) {
     switch (action.type) {
-        case 'CHANGE_SIZE' :
+        case 'CHANGE_SIZE':
             return {
                 ...state,
-                size: action.size
+                size: action.size,
+                totalCount: state.totalCount + 1
             }
-        case 'ADD_ITEM' :
+        case 'ADD_ITEM':
             let findSize = state.sizes.find((size) => size === action.size);
-            if(findSize === undefined){
+            if (findSize === undefined) {
                 return {
                     ...state,
-                    sizes:[...state.sizes, action.size]
+                    sizes: [...state.sizes, action.size]
                 }
             } else {
                 return { ...state };
             }
-            
-        case 'REMOVE_ITEM' : 
+
+        case 'REMOVE_ITEM':
             let newSizes = state.sizes.filter((size) => size !== action.size);
             return {
                 ...state,
                 sizes: newSizes
+            }
+
+        case 'PLUS_TOTAL_COUNT':
+            return {
+                ...state,
+                totalCount: state.totalCount + 1
+            }
+
+        case 'MINUS_TOTAL_COUNT':
+            return {
+                ...state,
+                totalCount: state.totalCount - 1
+            }
+        
+        case 'DIRECT_SET_TOTAL_COUNT':
+            return {
+                ...state,
+                totalCount: action.order
             }
     }
 }
@@ -62,11 +82,11 @@ const Detail = ({ tshirts }) => {
 
     function onChangeSelectedSize(event) {
         const size = event.target.value;
-        if(size === '옵션 선택') return;
+        if (size === '옵션 선택') return;
         dispatch({
             type: 'CHANGE_SIZE',
             size
-        })
+        });
         addItem(size);
     }
 
@@ -74,16 +94,32 @@ const Detail = ({ tshirts }) => {
         dispatch({
             type: 'ADD_ITEM',
             size
-        })
+        });
     }
 
     function removeItem(size) {
         dispatch({
             type: 'REMOVE_ITEM',
             size
-        })
+        });
     }
-    
+
+    function setTotalCount(order) {
+        if(order === 'plus')
+            dispatch({
+                type: 'PLUS_TOTAL_COUNT',
+            });
+        else if(order === 'minus')
+            dispatch({
+                type: 'MINUS_TOTAL_COUNT',
+            });
+        else if(typeof(order) !== NaN)
+            dispatch({
+                type: 'DIRECT_SET_TOTAL_COUNT',
+                order
+            })
+    }
+
     console.log(state);
     return (
         <div className={styles.detailContainer}>
@@ -134,18 +170,25 @@ const Detail = ({ tshirts }) => {
                         </table>
 
                         <div className={styles.cartContainer}>
-                            <div className={styles.select} > 
-                            {/* select에 value 있었는데 reducer로 바꾼 지금 value 있어야하나??? */}
-                                <select onChange={onChangeSelectedSize}> 
+                            <div className={styles.select} >
+                                {/* select에 value 있었는데 reducer로 바꾼 지금 value 있어야하나??? */}
+                                <select onChange={onChangeSelectedSize}>
                                     <OptionList size={tshirt.size} />
                                 </select>
                             </div>
                             <div className={styles.selectedItemListContainer}>
-                                <SelectedItemList max={tshirt.stock} price={tshirt.price} sizes={state.sizes} removeItem={removeItem}/>
+                                <SelectedItemList 
+                                    max={tshirt.stock} 
+                                    price={tshirt.price} 
+                                    sizes={state.sizes} 
+                                    totalCount={state.totalCount} 
+                                    removeItem={removeItem} 
+                                    setTotalCount={setTotalCount}
+                                />
                             </div>
                             <div className={styles.total}>
                                 <div>총 상품 금액</div>
-                                <div>0원</div>
+                                <div>{tshirt.price * state.totalCount}원</div>
                             </div>
                         </div>
                         <div className={styles.buttons}>

@@ -6,29 +6,32 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import styles from '../css/SelectedItemList.module.css';
 
 
-const SelectedItem = ({ max, size , removeItem, price}) => {
+const SelectedItem = ({ max, size , removeItem, price, setTotalCount}) => {
     console.log(size + '사이즈를 렌더링 했습니다.');
     const [num, setNum] = useState(1);
     function onChange(event) {
-        event.target.value = event.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
-        if(event.target.value > max) {
-            alert('재고를 넘는 양을 입력했습니다.')
-            return;
-        }
+        event.target.value = event.target.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');
         setNum(event.target.value);
+        if(typeof(event.target.value) !== NaN) setTotalCount(Number(event.target.value));
     }
+
     function onIncrease() {
-        if(num+1 > max) {
-            return;
-        }
+        // console.log(num);
+        // if(num+1 > max) {
+        //     return;
+        // }
+        setTotalCount('plus');
         setNum(num+1);
     }
+
     function onDecrease() {
-        if(num-1 < 1) {
-            return;
-        }
+        // if(num-1 < 1) {
+        //     return;
+        // }
+        setTotalCount('minus');
         setNum(num-1);
     }
+
     return (
         <div className={styles.itemContainer}>
             <div className={styles.size}>
@@ -56,14 +59,21 @@ const SelectedItem = ({ max, size , removeItem, price}) => {
     )
 }
 
-const SelectedItemList = ({ max, sizes, removeItem, price}) => {
+const SelectedItemList = ({ max, sizes, removeItem, price, totalCount, setTotalCount}) => {
     if(sizes.length === 0){
         return null;
     } else {
         return sizes.map((size, index) => {
                 return (
                     <React.Fragment key={index}>
-                        <SelectedItem max={max} size={size} price={price} removeItem={removeItem}/>
+                        <SelectedItem 
+                            max={max} 
+                            size={size} 
+                            price={price} 
+                            totalCount={totalCount} 
+                            removeItem={removeItem} 
+                            setTotalCount={setTotalCount}
+                        />
                     </React.Fragment>
                 )
             });
