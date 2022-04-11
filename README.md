@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# 쇼핑몰 디자인 클론코딩
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 개요
+- React를 공부하면서 만든 프로젝트입니다.
+- 쇼핑몰 템플릿을 토대로 웹사이트를 꾸미고 페이지간 이동 및 구현해보고자 하는 기능들을 연습해보았습니다.
+- 사용 기술 : HTML, CSS Module, React
+- 상태 관리 : useState, useReducer
 
-## Available Scripts
+## 2. 기능
+#### 2-1. 카드 컴포넌트
 
-In the project directory, you can run:
 
-### `npm start`
+## 3. 알게된 점
+#### 3-1. 리렌더링 후 setState가 적용되는 React
+#####useState로 상태관리를 하면 setState한 값을 바로 사용할 수 없는 문제가 있었습니다.
+- setState 함수를 호출한후 적용되는 것이 아닌 리렌더링 된 후 적용되는 React의 특징 때문이었습니다.  
+- useReducer를 이용하여 복잡하게 계산되는 state들을 한번에 다루어 이 문제를 해결할 수 있었습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### 3-2. CSS module은 class명이 겹치지 않는다.
+#####CSS로 작성을 하면 class명 때문에 CSS가 이상하게 적용되는 문제가 있었습니다.
+- 이를 해결하기 위해 React에서의 CSS 적용방법들을 찾아보니 CSS Module, Styled-Components 를 알게 되었고 그 중 CSS Module을 사용하여 해결하였습니다.
+- CSS Module을 이용하니 웹페이지에서 class명 뒤에 임의의 글자가 붙여지는것을 확인했습니다.
